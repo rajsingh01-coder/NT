@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>netmades.com</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2.3.0/dist/flickity.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3    /css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4fHI1YvbYzK2YO5Cl1wZnNf7PRiFQ9dPLF8GJzgfE5XXs03sE65SL+6CN1RVVOqTDeHhQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+
+
+
+
+  <body class="relative">
+
+
+
+    
+    <div class="over">
+      <nav class="bg-teal-500 p-4 fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex items-center space-x-2">
+            <img src="logo.svg" alt="Logo" class="w-8 h-8" />
+            <span class="text-white text-xl font-bold">netmades.com</span>
+          </div>
+
+          <!-- Location and Search - Desktop Only -->
+          <div class="hidden md:flex items-center space-x-4">
+            <div class="flex items-center space-x-2">
+              <span class="text-white deliver-text">Deliver to</span>
+              <button
+                onclick="toggleLocationModal()"
+                class="bg-teal-400 text-white p-1 rounded location-button"
+              >
+                110002
+              </button>
+            </div>
+            <div class="relative search-container">
+              <input
+                type="text"
+                placeholder="Search for medicine & wellness products..."
+                class="pl-4 pr-10 py-2 rounded-full w-80 focus:outline-none focus:ring-2 focus:ring-white"
+              />
+              <button
+                class="absolute right-2 top-1/2 transform -translate-y-1/2 text-teal-500 bg-white p-1 rounded-full"
+              >
+                🔍
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile - Only Location Button (Optional) -->
+          <div class="flex md:hidden items-center">
+            <button
+              onclick="toggleLocationModal()"
+              class="bg-teal-400 text-white p-1 rounded location-button"
+            >
+              110002
+            </button>
+          </div>
+
+          <!-- Links with Icons - Desktop View -->
+          <div class="hidden md:flex items-center space-x-6">
+            <a
+              href="#"
+              class="text-white flex items-center space-x-1 hover:underline"
+            >
+              <span>⬆️</span>
+              <span>Upload</span>
+            </a>
+            <a
+              href="#"
+              class="text-white flex items-center space-x-1 hover:underline"
+            >
+              <span>🎁</span>
+              <span>Offers</span>
+            </a>
+            <a href="#" class="text-white flex items-center relative">
+              <span>🛒</span>
+              <span>Cart</span>
+              <span
+                class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1"
+                >0</span
+              >
+            </a>
+            <a
+              href="#"
+              class="text-white flex items-center space-x-1 hover:underline"
+            >
+              <span>🔑</span>
+              <span>Sign in / Sign up</span>
+            </a>
+          </div>
+
+          <!-- Mobile View - Only Cart and Offer Icons -->
+          <div class="flex md:hidden items-center space-x-4 mobile-icons">
+            <a href="#" class="text-white flex items-center hover:underline">
+              <span>🎁</span>
+            </a>
+            <a href="#" class="text-white flex items-center relative">
+              <span>🛒</span>
+              <span
+                class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1"
+                >0</span
+              >
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Location Modal -->
+      <div
+        id="location-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden"
+      >
+        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+          <h2 class="text-lg font-bold mb-4">
+            Access to your Addresses, Orders, and Wishlist
+          </h2>
+          <p class="mb-4">Sign in to see your location</p>
+          <p class="mb-4">Or Enter Pincode</p>
+          <input
+            type="text"
+            placeholder="Enter Pincode"
+            class="w-full p-2 border rounded mb-4 focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
+          <button class="w-full bg-teal-500 text-white py-2 rounded mb-2">
+            Detect my location
+          </button>
+          <button
+            class="w-full bg-gray-200 text-gray-700 py-2 rounded"
+            onclick="toggleLocationModal()"
+          >
+            Allow to access your location
+          </button>
+        </div>
+      </div>
+
+      <div class="navbar">
+        <a href="#" class="navbar-item">
+          <img
+            src="https://img.icons8.com/ios/50/FFFFFF/home.png" 
+  alt="Home Icon" 
+          />
+          Home
+        </a>
+        <a href="#" class="navbar-item">
+          <img
+            src="https://img.icons8.com/ios/50/FFFFFF/spa.png"
+            alt="Wellness Icon"
+          />
+          Wellness
+        </a>
+        <a href="#" class="navbar-item">
+          <img
+            src="https://img.icons8.com/ios/50/FFFFFF/test-tube.png"
+            alt="Lab Tests Icon"
+          />
+          Lab Tests
+        </a>
+        <a href="#" class="navbar-item">
+          <img
+            src="https://img.icons8.com/ios/50/FFFFFF/lipstick.png"
+            alt="Beauty Icon"
+          />
+          Beauty
+        </a>
+        <a href="account.html" class="navbar-item">
+          <img
+            src="https://img.icons8.com/ios/50/FFFFFF/user.png" 
+  alt="Account Icon" 
+          />
+           Account
+        </a>
+      </div>
+      <div class="submenu">
+        <a href="#" class="submenu-item">Covid Essentials</a>
+        <a href="#" class="submenu-item">Diabetes</a>
+        <a href="#" class="submenu-item">Cardiac Care</a>
+        <a href="#" class="submenu-item">Stomach Care</a>
+        <a href="#" class="submenu-item">Ayurvedic</a>
+        <a href="#" class="submenu-item">Homeopathy</a>
+        <a href="#" class="submenu-item">Fitness</a>
+        <a href="#" class="submenu-item">Mom & Baby</a>
+        <a href="#" class="submenu-item">Devices</a>
+        <a href="#" class="submenu-item">Surgicals</a>
+        <a href="#" class="submenu-item">Sexual Wellness</a>
+        <a href="#" class="submenu-item">Treatments</a>
+        <a href="#" class="submenu-item">Skin Care</a>
+        <a href="#" class="submenu-item">Personal Care</a>
+      </div>
+
+      <div class="carousel-container">
+        <button class="prev-btn">❮</button>
+        <button class="next-btn">❯</button>
+
+        <div class="carousel">
+          <!-- Slide 1 -->
+          <div class="carousel-slide">
+            <img
+              src="https://mercury.akamaized.net/i/b21032de0de0ece8e5f53dacc044c770_200939_0.jpg"
+            />
+            <div class="carousel-content">
+              <div class="offer-details"></div>
+              <div class="model-image">
+                <!-- This would be a model image in the real banner -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <img
+              src="https://mercury.akamaized.net/i/c3f4866e2c37c4bc29ca29637dd7b842_201608_0.jpg"
+            />
+            <div class="carousel-content">
+              <div class="offer-details"></div>
+              <div class="model-image">
+                <!-- This would be a model image in the real banner -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <img
+              src="https://mercury.akamaized.net/i/ca1896c51492da67e1f09890c0cc4d4b_232403_0.jpg"
+            />
+            <div class="carousel-content">
+              <div class="offer-details"></div>
+              <div class="model-image">
+                <!-- This would be a model image in the real banner -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="carousel-slide">
+            <img
+              src="https://mercury.akamaized.net/i/da6059dc3c72f6a113252c1a67190153_232024_0.jpg"
+            />
+            <div class="carousel-content">
+              <div class="offer-details"></div>
+              <div class="model-image">
+                <!-- This would be a model image in the real banner -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="carousel-slide">
+            <img
+              src="https://mercury.akamaized.net/i/e79da7dbff64419b203841851de70768_201575_0.jpg"
+            />>
+            <div class="carousel-content">
+              <div class="offer-details">
+               
+              
+              </div>
+              <div class="model-image">
+                <!-- This would be a model image in the real banner -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="carousel-slide">
+            <img
+              src="https://mercury.akamaized.net/i/df0f88cb31b322849ba366d9a5d0ab15_232025_0.jpg"
+            />>
+            <div class="carousel-content">
+              <div class="offer-details">
+            
+              </div>
+              <div class="model-image">
+                <!-- This would be a model image in the real banner -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <span class="carousel-indicator active"></span>
+          <span class="carousel-indicator"></span>
+          <span class="carousel-indicator"></span>
+          <span class="carousel-indicator"></span>
+          <span class="carousel-indicator"></span>
+          <span class="carousel-indicator"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="submenutwo">
+      <a href="#" class="submenutwo-item">
+        <img
+          src="https://img.icons8.com/ios/50/000000/protection-mask.png"
+          alt="Covid"
+          class="submenu-icon"
+        />
+        Covid Essentials
+      </a>
+      <a href="#" class="submenutwo-item">
+        <img
+          src="https://img.icons8.com/ios/50/000000/diabetes.png"
+          alt="Diabetes"
+          class="submenu-icon"
+        />
+        Diabetes
+      </a>
+      <a href="#" class="submenutwo-item">
+        <img
+          src="https://img.icons8.com/ios/50/000000/heart-with-pulse.png"
+          alt="Cardiac"
+          class="submenu-icon"
+        />
+        Cardiac Care
+      </a>
+      <a href="#" class="submenutwo-item">
+        <img
+          src="https://img.icons8.com/ios/50/000000/stomach.png"
+          alt="Stomach"
+          class="submenu-icon"
+        />
+        Stomach Care
+      </a>
+
+      <a href="#" class="submenu-item">
+        <img
+          src="https://img.icons8.com/ios/50/000000/pill.png"
+          alt="Homeopathy"
+          class="submenu-icon"
+        />
+        Homeopathy
+      </a>
+      <a href="#" class="submenutwo-item">
+        <img
+          src="https://img.icons8.com/ios/50/000000/dumbbell.png"
+          alt="Fitness"
+          class="submenu-icon"
+        />
+        Fitness
+      </a>
+      <a href="#" class="submenutwo-item">
+        <img
+          src="https://img.icons8.com/ios/50/000000/baby.png"
+          alt="Mom & Baby"
+          class="submenu-icon"
+        />
+        Mom & Baby
+      </a>
+      <a href="#" class="submenutwo-item">
+        <img
+          src="https://img.icons8.com/ios/50/000000/stethoscope.png"
+          alt="Devices"
+          class="submenu-icon"
+        />
+        Devices
+      </a>
+      <a href="#" class="submenutwo-item">
+        <img
+          src="https://img.icons8.com/ios/50/000000/bandage.png"
+          alt="Surgicals"
+          class="submenu-icon"
+        />
+        Surgicals
+      </a>
+      <a href="#" class="submenutwo-item">
+        <img
+          src="https://img.icons8.com/ios/50/000000/health-book.png"
+          alt="Sexual Wellness"
+          class="submenu-icon"
+        />
+        Sexual Wellness
+      </a>
+
+      <a href="#" class="submenutwo-item">
+        <img
+          src="https://img.icons8.com/ios/50/000000/facial-mask.png"
+          alt="Skin Care"
+          class="submenu-icon"
+        />
+        Skin Care
+      </a>
+      <a href="#" class="submenutwo-item">
+        <img
+          src="https://img.icons8.com/ios/50/000000/bath.png"
+          alt="Personal Care"
+          class="submenu-icon"
+        />
+        Personal Care
+      </a>
+    </div>
+
+    <div class="header">Netmeds: India's most trusted online pharmacy</div>
+
+    <div class="cards-container">
+      <!-- Medicine Card -->
+      <div class="card">
+        <div class="card-icon medicine-icon">
+          <img
+            src="icon4.svg"
+          />
+        </div>
+        <div class="card-content">
+          <div class="card-title">Order Medicine</div>
+          <div class="card-subtitle">Save Upto 25% off</div>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+
+      <!-- Beauty Card -->
+      <div class="card">
+        <div class="card-icon beauty-icon">
+          <img
+            src="icon5.svg"
+            alt="Beauty Icon"
+          />
+        </div>
+        <div class="card-content">
+          <div class="card-title">Beauty</div>
+          <div class="card-subtitle">Save Upto 40% off</div>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+
+      <!-- Wellness Card -->
+      <div class="card">
+        <div class="card-icon wellness-icon">
+          <img
+            src="icon6.svg"
+            alt="Wellness Icon"
+          />
+        </div>
+        <div class="card-content">
+          <div class="card-title">Wellness</div>
+          <div class="card-subtitle">Upto 60% off</div>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+    </div>
+
+    <div class="payment-section">
+      <div class="section-header">
+        <div class="section-title">Payment Partner Offers</div>
+        <a href="#" class="view-all">View All</a>
+      </div>
+
+      <div class="offers-slider">
+        <button class="nav-arrow nav-prev">&#10094;</button>
+
+        <div class="offers-container">
+          <!-- Offer 1 - Paytm -->
+          <div class="offer-card">
+            <div class="offer-logo">
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMTAuOCAxMi4yYy0uNCAwLS44LjEtMSAuNC0uMy4zLS40LjctLjQgMS4xdjEuMWMwIC40LjEuOC40IDEuMS4zLjMuNi40IDEgLjRzLjgtLjEgMS0uNC4zLS43LjMtMS4xdi0xLjFjMC0uNC0uMS0uOC0uNC0xLjEtLjEtLjMtLjUtLjQtLjktLjR6TTIyLjIgMTAuMWMtLjMtLjMtLjgtLjUtMS4zLS41cy0uOS4xLTEuMy41LS42LjctLjYgMS4ydjEuNmMwIC41LjIuOS41IDEuMi4zLjMuOC41IDEuMy41cy45LS4xIDEuMy0uNS42LS43LjYtMS4ydi0xLjZjLjEtLjUtLjEtLjktLjUtMS4yeiIgZmlsbD0iIzAwYjlmNSIvPjxwYXRoIGQ9Ik0yOC4yIDNIMy44QzEuNyAzIDAgNC43IDAgNi44djE4LjNDMCAyNy4zIDEuNyAyOSAzLjggMjloMjQuM2MyLjEgMCAzLjgtMS43IDMuOC0zLjhWNi44YzAuMS0yLjEtMS43LTMuOC0zLjctMy44em0tMTcuNiAxM2MwIC45LS4zIDEuNi0uOSAyLjItLjYuNi0xLjMuOC0yLjIuOHMtMS42LS4zLTIuMi0uOC0uOS0xLjMtLjktMi4ydi0xLjFjMC0uOS4zLTEuNi45LTIuMi42LS42IDEuMy0uOCAyLjItLjhzMS42LjMgMi4yLjguOS41LjkgMS4ydjEuNGMuMS0uMS4xIDAgMCAwem0tNy40LTQuNWMwLS41LjMtLjguOS0uOGguMmMuNC4xLjYuMy43LjVsMS42IDNWMTBoLjdjLjUgMCAuOC4zLjguOHY2LjloLTEuN2wtMi4yLTQuMXY0LjFoLTF2LTYuMnptMTIuMyA2LjNjLS42LjYtMS40LjktMi40LjlzLTEuOC0uMy0yLjQtLjljLS42LS42LS45LTEuNC0uOS0yLjN2LTEuNmMwLS45LjMtMS42LjktMi4yLjYtLjYgMS40LS45IDIuNC0uOXMxLjguMyAyLjQuOWMuNi42LjkgMS40LjkgMi4zdjEuNmMwIC45LS4zIDEuNi0uOSAyLjJ6bTguMy0uOWMwIC45LS4zIDEuNi0uOSAyLjItLjYuNi0xLjMuOC0yLjIuOHMtMS42LS4zLTIuMi0uOGMtLjYtLjUtLjktMS4yLS45LTIuMnYtNS4zaC43Yy41IDAgLjguMyA4LjN2NS4zYzAgLjQuMi43LjQuOXMuNi4zIDEgLjNjLjQgMCAuNy0uMSAxLS4zLjMtLjIuNC0uNS40LS45di01LjNoLjdDMjkuNyA4LjYgMzAgOSAzMCA5LjR2Ny41eiIgZmlsbD0iIzAyMjlmYyIvPjwvc3ZnPg=="
+                alt="Paytm Logo"
+              />
+            </div>
+            <div class="offer-content">
+              <div class="offer-title">
+                Get Assured Paytm Cashback Between ₹10 and ₹300 on 1st & 3rd
+                orders
+              </div>
+              <div class="offer-description">
+                Till 31st July 2025, get assured Paytm cashback between Rs. 10
+                and Rs. 300
+              </div>
+            </div>
+          </div>
+
+          <!-- Offer 2 - Rewards -->
+          <div class="offer-card">
+            <div class="offer-logo">
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMiIgZmlsbD0iI2ZmYzEwNyIvPjxwYXRoIGQ9Ik0xNiAyNWM0Ljk3IDAgOS01LjAzIDktOXMtNC4wMy05LTktOS05IDQuMDMtOSA5IDQuMDMgOSA5IDl6bTItMTJoLTR2M2gtM3Y0aDN2M2g0di0zaDN2LTRoLTN2LTN6IiBmaWxsPSIjZmZmIi8+PC9zdmc+"
+                alt="Rewards Logo"
+              />
+            </div>
+            <div class="offer-content">
+              <div class="offer-title">
+                Get assured Savings of up to Rs. 150* + Earn up to 16X rewards*
+              </div>
+              <div class="offer-description">
+                ALL users get assured Savings of max. Rs. 150 on ONLY one
+                transaction of Rs. 600+
+              </div>
+            </div>
+          </div>
+
+          <!-- Offer 3 - New Users -->
+          <div class="offer-card">
+            <div class="offer-logo">
+              <img
+                src="icon7.png"
+                alt="New Users Logo"
+              />
+            </div>
+            <div class="offer-content">
+              <div class="offer-title">
+                Get assured Savings of up to Rs. 200* + Earn up to 16X rewards*
+              </div>
+              <div class="offer-description">
+                NEW users get assured Savings of max. Rs. 200 on ONLY one
+                transaction of Rs. 600+
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more offers as needed -->
+        </div>
+
+        <button class="nav-arrow nav-next">&#10095;</button>
+      </div>
+
+      <div class="membership-banner">
+        <div class="icon-container">
+          <div class="crown-icon">
+            <div class="sparkle sparkle-1"></div>
+            <div class="sparkle sparkle-2"></div>
+            <div class="sparkle sparkle-3"></div>
+            <div class="sparkle sparkle-4"></div>
+          </div>
+        </div>
+
+        <div class="content">
+          <h2>Netmeds First Membership</h2>
+          <p>Get special discounts and offers on Netmeds services.</p>
+          <p>Get 2% NMS Cash on all orders.</p>
+          <p>Get unlimited free delivery.</p>
+        </div>
+
+        <div class="price">
+          <div class="starting-at">
+            <span class="lightning-icon">⚡</span>
+            <span class="price-text"
+              >Starting at <span class="amount">₹49</span></span
+            >
+          </div>
+          <button class="explore-btn">Explore Plans</button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+      <!-- Carousel HTML -->
+       <h1 class="new">Trending Today</h1>
+      <div class="custom-carousel">
+        
+        <div class="carousel-cell">
+          <img
+            src="https://mercury.akamaized.net/i/5ff5a58b773ba8da69c2729e92aa6170_325078_0.jpg"
+          />
+          <p>Everyday Medical Essentials</p>
+        </div>
+        <div class="carousel-cell">
+          <img
+            src="https://mercury.akamaized.net/i/0d71cb366f8fae5c0053cd4b99c11f9b_58439_0.jpg"
+          />
+          <p>Save on 3M Products</p>
+        </div>
+        <div class="carousel-cell">
+          <img
+            src="https://mercury.akamaized.net/i/ab9376d3b1e87549186e2780fe207589_68893_0.jpg"
+          />
+          <p>Good Health Ahead</p>
+        </div>
+        <div class="carousel-cell">
+          <img
+            src="https://mercury.akamaized.net/i/1585ddebdb31263d730bf83ccbae2bee_260264_0.jpg"
+          />
+          <p>Special Offers on Health Products</p>
+        </div>
+        <div class="carousel-cell">
+          <img
+            src="https://mercury.akamaized.net/i/0d71cb366f8fae5c0053cd4b99c11f9b_58439_0.jpg"
+          />
+          <p>Daily Wellness Deals</p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+    <div class="container-fluid p-0 m-0">
+        <!-- Timer bar -->
+        <div class="timer-bar">
+            <span class="timer-icon">⏰</span>
+            <span class="time-remaining">15h 28m 32s remaining</span>
+        </div>
+    
+    <!-- Limited Time Deals Header -->
+    <div class="deals-header">
+        <div>
+            <h2>Limited Time Deals</h2>
+            <p>Grab the Deal!</p>
+        </div>
+        <a href="#" class="view-all">View All &gt;</a>
+    </div>
+    
+    <!-- Carousel -->
+    <div class="ltd-deals-wrapper" data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false }'>
+        <!-- Product 1 -->
+        <div class="deal-item">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="1..jpg" alt="Truuth Crepe Bandage">
+                    <div class="favorite">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Truuth Crepe Bandage (6 Cm X 4 Mtr)</div>
+                    <div class="price-container">
+                        <span class="current-price">₹ 74.70</span>
+                        <span class="original-price">₹ 249.00</span>
+                    </div>
+                    <div class="discount">GET 70 % off</div>
+                </div>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="deal-item">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="2..jpg">
+                    <div class="favorite">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Contec Pulse Oximeter (CMS50D)</div>
+                    <div class="price-container">
+                        <span class="current-price">₹ 340.00</span>
+                        <span class="original-price">₹ 3,400.00</span>
+                    </div>
+                    <div class="discount">GET 90 % off</div>
+                </div>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="deal-item">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="3..jpg" alt="Dr. Willmar Schwabe Biofungin Syrup">
+                    <div class="favorite">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Dr. Willmar Schwabe Biofungin Syrup 250 Ml</div>
+                    <div class="price-container">
+                        <span class="current-price">₹ 756.70</span>
+                        <span class="original-price">₹ 940.00</span>
+                    </div>
+                    <div class="discount">GET 19.5 % off</div>
+                </div>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+        </div>
+        
+        <!-- Product 4 -->
+        <div class="deal-item">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="4..jpg" alt="BILUMA ADVANCE SKIN BRIGHTENING Lotion">
+                    <div class="favorite">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">BILUMA ADVANCE SKIN BRIGHTENING Lotion</div>
+                    <div class="price-container">
+                        <span class="current-price">₹ 789.21</span>
+                        <span class="original-price">₹ 999.00</span>
+                    </div>
+                    <div class="discount">GET 21 % off</div>
+                </div>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+        </div>
+        
+        <!-- Product 5 -->
+        <div class="deal-item">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="5.jpg" alt="Dr. Willmar Schwabe Damiaplant Tonic">
+                    <div class="favorite">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span>4.0</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Dr. Willmar Schwabe Damiaplant Tonic 30 Ml</div>
+                    <div class="price-container">
+                        <span class="current-price">₹ 390.43</span>
+                        <span class="original-price">₹ 485.00</span>
+                    </div>
+                    <div class="discount">GET 19.5 % off</div>
+                </div>
+                <button class="add-to-cart">ADD TO CART</button>
+            </div>
+        </div>
+        
+       
+         
+
+
+
+
+
+
+
+
+        
+        <!-- Decorative background element -->
+        <img src="limited.png" alt="Limited Time" class="limited-time-bg">
+    </div>
+    </div>
+
+     <!-- More conatiner can be added here -->
+ <div class="container">
+        <div class="header">
+            <h2>Shop by Netmades</h2>
+            <a href="#" class="view-all">View All ></a>
+        </div>
+
+        <div class="categories-grid">
+            <div class="category-card green" onclick="handleCategoryClick('face-wash')">
+                <h3 class="category-title"><br></h3>
+                <div class="product-image">
+                    <img src="12.jpg" alt="Face wash and cleansers">
+                </div>
+            </div>
+
+            <div class="category-card blue" onclick="handleCategoryClick('dressing')">
+                <h3 class="category-title"></h3>
+                <div class="product-image">
+                    <img src="13.jpg" alt="Dressing products">
+                </div>
+            </div>
+
+            <div class="category-card cyan" onclick="handleCategoryClick('condoms')">
+                <h3 class="category-title"></h3>
+                <div class="product-image">
+                    <img src="14.jpg" alt="Condoms">
+                </div>
+            </div>
+
+            <div class="category-card purple" onclick="handleCategoryClick('pain-relief')">
+                <h3 class="category-title"><br></h3>
+                <div class="product-image">
+                    <img src="15.jpg" alt="Pain relief applications">
+                </div>
+            </div>
+
+            <div class="category-card pink" onclick="handleCategoryClick('feminine-hygiene')">
+                <h3 class="category-title"><br></h3>
+                <div class="product-image">
+                    <img src="16.jpg" alt="Feminine hygiene">
+                </div>
+            </div>
+        </div>
+    </div>
+  
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="biluma-section">
+        <div class="biluma-logo">BILUMA</div>
+        
+        <div class="container">
+            <div class="section-header">
+                <div class="header-content">
+                    <h2>Biluma Upto 16% off</h2>
+                    <div class="sponsored">Sponsored</div>
+                </div>
+                <a href="#" class="view-all">View All ></a>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="7.jpg" alt="BILUMA ADVANCE SKIN BRIGHTENING Face Wash">
+                    </div>
+                    <div class="rating-wishlist">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="rating-text">5.0</span>
+                        </div>
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                            ♡
+                        </button>
+                    </div>
+                    <h3 class="product-title">BILUMA ADVANCE SKIN BRIGHTENING Face Wash</h3>
+                    <div class="price-container">
+                        <span class="current-price">₹ 624.96</span>
+                        <span class="original-price">₹ 724.00</span>
+                        <div class="discount-badge">GET 16 % off</div>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('biluma-face-wash')">ADD TO CART</button>
+                </div>
+
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="8.jpg" alt="BILUMA ADVANCE SKIN BRIGHTENING Lotion">
+                    </div>
+                    <div class="rating-wishlist">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="rating-text">5.0</span>
+                        </div>
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                            ♡
+                        </button>
+                    </div>
+                    <h3 class="product-title">BILUMA ADVANCE SKIN BRIGHTENING Lotion</h3>
+                    <div class="price-container">
+                        <span class="current-price">₹ 839.16</span>
+                        <span class="original-price">₹ 999.00</span>
+                        <div class="discount-badge">GET 16 % off</div>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('biluma-lotion')">ADD TO CART</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="9.jpg" alt="BILUMA ADVANCE NIGHT Cream 45gm">
+                    </div>
+                    <div class="rating-wishlist">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="rating-text">5.0</span>
+                        </div>
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                            ♡
+                        </button>
+                    </div>
+                    <h3 class="product-title">BILUMA ADVANCE NIGHT Cream 45gm</h3>
+                    <div class="price-container">
+                        <span class="current-price">₹ 1,332.24</span>
+                        <span class="original-price">₹ 1,568.00</span>
+                        <div class="discount-badge">GET 16 % off</div>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('biluma-night-cream')">ADD TO CART</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="10.jpg" alt="BILUMA ADVANCE DAY Cream 50gm">
+                    </div>
+                    <div class="rating-wishlist">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="rating-text">5.0</span>
+                        </div>
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                            ♡
+                        </button>
+                    </div>
+                    <h3 class="product-title">BILUMA ADVANCE DAY Cream 50gm</h3>
+                    <div class="price-container">
+                        <span class="current-price">₹ 1,191.12</span>
+                        <span class="original-price">₹ 1,418.00</span>
+                        <div class="discount-badge">GET 16 % off</div>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('biluma-day-cream')">ADD TO CART</button>
+                </div>
+            </div>
+
+            <button class="nav-arrow prev" onclick="scrollProducts('left')">❮</button>
+            <button class="nav-arrow next" onclick="scrollProducts('right')">❯</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="containercategory">
+        <div class="section-headerone">
+            <h2 class="section-title">Shop by Category</h2>
+            <a href="#" class="view-all">View All ></a>
+        </div>
+
+        <div class="cards-container">
+            <div class="scroll-buttons">
+                <button class="scroll-btn scroll-left" onclick="scrollCards('left', 'cards1')">‹</button>
+                <button class="scroll-btn scroll-right" onclick="scrollCards('right', 'cards1')">›</button>
+            </div>
+            <div class="cards-grid" id="cards1">
+                <div class="product-card">
+                    <div class="card-category face-wash">FACE WASH & CLEANSERS</div>
+                    <div class="card-image">
+                        <img src="face.png" alt="Face wash product" />
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-category dressing">DRESSING</div>
+                    <div class="card-image">
+                        <img src="dressing.png" alt="Dressing product" />
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-category condoms">CONDOMS</div>
+                    <div class="card-image">
+                        <img src="condom.png" alt="Condoms product" />
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-category pain-relief">PAIN RELIEF APPLICATIONS</div>
+                    <div class="card-image">
+                        <img src="pain.jpg" alt="Pain relief product" />
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-category feminine-hygiene">FEMININE HYGIENE</div>
+                    <div class="card-image">
+                        <img src="feminine.jpg" alt="Feminine hygiene product" />
+                    </div>
+                </div>
+
+                <!-- Additional cards for scrolling demo -->
+                <div class="product-card">
+                    <div class="card-category" style="color: #f39c12;">Stomach</div>
+                    <div class="card-image">
+                        <img src="stomach_discomfort_1.jpg" alt="Supplements product" />
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-category" style="color: #16a085;">BODY CARE</div>
+                    <div class="card-image">
+                        <img src="body_care_4.jpg" alt="Baby care product" />
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-category" style="color: #e67e22;">ORAL CARE</div>
+                    <div class="card-image">
+                        <img src="pain.jpg" alt="Oral care product" />
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+       
+
+
+
+
+
+
+
+
+         <div class="banner-container">
+        <div class="banner-content">
+            <!-- Left Section - Store Locator -->
+            <div class="store-section">
+                <div class="store-header">
+                    <div class="store-icon"></div>
+                    <div class="store-info">
+                        <h2>Netmeds Stores</h2>
+                        <p>Stores near you ></p>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-bg"></div>
+                    <div class="map-marker marker-1"></div>
+                    <div class="map-marker marker-2"></div>
+                    <div class="map-marker marker-3"></div>
+                </div>
+            </div>
+
+            <!-- Right Section - Promotion -->
+            <div class="promo-section">
+                <div class="promo-badge">UPTO 65% OFF</div>
+                <div class="discount-text">65% OFF</div>
+                <button class="cta-button">SAVE MORE WITH GENERIC MEDICINE</button>
+                <div class="works-text">WORKS THE SAME</div>
+                
+                <div class="pill-illustration">
+                    <div class="pill"></div>
+                </div>
+            </div>
+
+            <!-- Arrow Icon -->
+            <div class="arrow-icon">→</div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="statistics">
+        <div class="statistic">
+            <img src="icon1.png" alt="Offline Stores" class="icon">
+            <h2 class="count">1000+</h2>
+            <p>Offline Stores</p>
+        </div>
+        <div class="statistic">
+            <img src="icon2.png" alt="Pincodes Served" class="icon">
+            <h2 class="count">20000+</h2>
+            <p>Pincodes Served</p>
+        </div>
+        <div class="statistic">
+            <img src="icon3.png" alt="Happy Customers" class="icon">
+            <h2 class="count">9M+</h2>
+            <p>Happy Customers</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <!-- Footer Section -->
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Company -->
+                <div class="footer-column">
+                    <h3>COMPANY</h3>
+                    <ul>
+                        <li><a href="#">About Netmeds</a></li>
+                        <li><a href="#">Customers Speak</a></li>
+                        <li><a href="#">In the News</a></li>
+                        <li><a href="#">Career</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Our Policies -->
+                <div class="footer-column">
+                    <h3>OUR POLICIES</h3>
+                    <ul>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Fees and Payments Policy</a></li>
+                        <li><a href="#">Shipping and Delivery Policy</a></li>
+                        <li><a href="#">Return, Refund and Cancellation Policy</a></li>
+                        <li><a href="#">Editorial Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Shopping -->
+                <div class="footer-column">
+                    <h3>SHOPPING</h3>
+                    <ul>
+                        <li><a href="#">Browse by A-Z</a></li>
+                        <li><a href="#">Browse by Manufacturers</a></li>
+                        <li><a href="#">Health Articles</a></li>
+                        <li><a href="#">Offers / Coupons</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Popular Categories -->
+                <div class="footer-column">
+                    <h3>POPULAR CATEGORIES</h3>
+                    <ul>
+                        <li><a href="#">Fitness</a></li>
+                        <li><a href="#">Devices</a></li>
+                        <li><a href="#">Personal Care</a></li>
+                        <li><a href="#">Ayurveda</a></li>
+                        <li><a href="#">Homeopathy</a></li>
+                        <li><a href="#">Treatments</a></li>
+                        <li><a href="#">Sexual Wellness</a></li>
+                        <li><a href="#">Surgicals</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div class="footer-column">
+                    <h3>SOCIAL</h3>
+                    <ul>
+                        <li><a href="#">Patients Alike</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Youtube</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Refer & Earn</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-column newsletter">
+                    <h3>SUBSCRIBE TO OUR NEWSLETTER</h3>
+                    <p>Get a free subscription to our health and fitness tip and stay tuned to our latest offers</p>
+                    <form>
+                        <input type="email" placeholder="Enter your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Payment Partners -->
+            <div class="payment-partners">
+                <h3>OUR PAYMENT PARTNERS</h3>
+                <div class="payment-icons">
+                    <img src="google.svg" alt="Google Pay">
+                    <img src="phonepe.svg" alt="PhonePe">
+                    <img src="paytm.svg" alt="Paytm">
+                    <img src="simpl.svg" alt="Simpl">
+                    <img src="rupay.svg" alt="RuPay">
+                    <img src="simpl.svg" alt="Simpl">
+                    <img src="mastercard.svg" alt="Mastercard">
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-links">
+                    <a href="#">Medicine</a>
+                    <a href="#">Wellness</a>
+                    <a href="#">Lab Tests</a>
+                    <a href="#">Beauty</a>
+                </div>
+                <div class="copyright">
+                    Copyright© 2023. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+      <!-- Include Flickity JS -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.pkgd.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
